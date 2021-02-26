@@ -14,6 +14,7 @@ Repo for computer science projects
 - [Rekursion (2020)](src/recursion)
 - [Sortieralgorithmen (2020)](src/sorting)
 - [Rohrpost (2021-KW8)](src/rohrpost)
+- [lalelu-Sprache (2021-KW8)](src/lalelu)
 
 ### Other
 
