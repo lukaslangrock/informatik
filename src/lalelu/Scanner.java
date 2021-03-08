@@ -1,5 +1,7 @@
 package lalelu;
 
+import lib.List;
+
 public class Scanner {
     public boolean scan(String pInput) {
         Character buffer = null;
@@ -36,5 +38,18 @@ public class Scanner {
         if (!char1.equals('l')) { return false; }
         if (!char2.equals('u')) { return false; }
         return true;
+    }
+
+    public List<Token> genTokenList(String pInput) {
+        List<Token> tokenlist = new List<Token>();
+        Character buffer = null;
+        for (char i : pInput.toCharArray()) {
+            if (buffer == null) {
+                buffer = i;
+            } else {
+                   
+            }
+        }
+        return tokenlist;
     }
 }
