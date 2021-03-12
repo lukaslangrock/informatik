@@ -15,6 +15,7 @@ Repo for computer science projects
 - [Sortieralgorithmen (2020)](src/sorting)
 - [Rohrpost (2021-KW8)](src/rohrpost)
 - [lalelu-Sprache (2021-KW8)](src/lalelu)
+- [Morsecode (2021-KW10)](src/morsecode)
 
 ### Other
 
