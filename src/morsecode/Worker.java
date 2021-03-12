@@ -1,10 +1,10 @@
 package morsecode;
 
 public class Worker {
-    BinaryTree<String> morsetree;
+    private final BinaryTree<String> morsetree;
 
     public Worker() {
-        buildTree();
+        morsetree = buildTree();
     }
 
     public char translateToChar (String pInput) {
@@ -21,106 +21,109 @@ public class Worker {
         return temp.getContent().charAt(0);
     }
 
-    private void buildTree() {
+    private BinaryTree<String> buildTree() {
         // left tree: -
         // right tree: .
         
-        morsetree = new BinaryTree<String>();
-        morsetree.setContent("");
+        BinaryTree<String> temp = new BinaryTree<String>();
 
-        morsetree.getLeftTree().setContent("T");
-        morsetree.getRightTree().setContent("E");
+        temp.setContent("");
 
-        morsetree.getLeftTree().getLeftTree().setContent("M");
-        morsetree.getLeftTree().getRightTree().setContent("N");
-        morsetree.getRightTree().getLeftTree().setContent("A");
-        morsetree.getRightTree().getRightTree().setContent("I");
+        temp.getLeftTree().setContent("T");
+        temp.getRightTree().setContent("E");
 
-        morsetree.getLeftTree().getLeftTree().getLeftTree().setContent("O");
-        morsetree.getLeftTree().getLeftTree().getRightTree().setContent("G");
-        morsetree.getLeftTree().getRightTree().getLeftTree().setContent("K");
-        morsetree.getLeftTree().getRightTree().getRightTree().setContent("D");
-        morsetree.getRightTree().getLeftTree().getLeftTree().setContent("W");
-        morsetree.getRightTree().getLeftTree().getRightTree().setContent("R");
-        morsetree.getRightTree().getRightTree().getLeftTree().setContent("U");
-        morsetree.getRightTree().getRightTree().getRightTree().setContent("S");
+        temp.getLeftTree().getLeftTree().setContent("M");
+        temp.getLeftTree().getRightTree().setContent("N");
+        temp.getRightTree().getLeftTree().setContent("A");
+        temp.getRightTree().getRightTree().setContent("I");
 
-        morsetree.getLeftTree().getLeftTree().getLeftTree().getLeftTree().setContent("CH");
-        morsetree.getLeftTree().getLeftTree().getLeftTree().getRightTree().setContent("Ö");
-        morsetree.getLeftTree().getLeftTree().getRightTree().getLeftTree().setContent("Q");
-        morsetree.getLeftTree().getLeftTree().getRightTree().getRightTree().setContent("Z");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getLeftTree().setContent("Y");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getRightTree().setContent("C");
-        morsetree.getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("X");
-        morsetree.getLeftTree().getRightTree().getRightTree().getRightTree().setContent("B");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("J");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("P");
-        morsetree.getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("Ä");
-        morsetree.getRightTree().getLeftTree().getRightTree().getRightTree().setContent("L");
-        morsetree.getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("Ü");
-        morsetree.getRightTree().getRightTree().getLeftTree().getRightTree().setContent("F");
-        morsetree.getRightTree().getRightTree().getRightTree().getLeftTree().setContent("V");
-        morsetree.getRightTree().getRightTree().getRightTree().getRightTree().setContent("H");
+        temp.getLeftTree().getLeftTree().getLeftTree().setContent("O");
+        temp.getLeftTree().getLeftTree().getRightTree().setContent("G");
+        temp.getLeftTree().getRightTree().getLeftTree().setContent("K");
+        temp.getLeftTree().getRightTree().getRightTree().setContent("D");
+        temp.getRightTree().getLeftTree().getLeftTree().setContent("W");
+        temp.getRightTree().getLeftTree().getRightTree().setContent("R");
+        temp.getRightTree().getRightTree().getLeftTree().setContent("U");
+        temp.getRightTree().getRightTree().getRightTree().setContent("S");
 
-        morsetree.getLeftTree().getLeftTree().getLeftTree().getLeftTree().getLeftTree().setContent("0");
-        morsetree.getLeftTree().getLeftTree().getLeftTree().getLeftTree().getRightTree().setContent("9");
-        morsetree.getLeftTree().getLeftTree().getLeftTree().getRightTree().getLeftTree().setContent("");
-        morsetree.getLeftTree().getLeftTree().getLeftTree().getRightTree().getRightTree().setContent("8");
-        morsetree.getLeftTree().getLeftTree().getRightTree().getLeftTree().getLeftTree().setContent("Ñ");
-        morsetree.getLeftTree().getLeftTree().getRightTree().getLeftTree().getRightTree().setContent("");
-        morsetree.getLeftTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("[n. b.]");
-        morsetree.getLeftTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent("7");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("(");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("[Spruchanfang]");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getRightTree().getRightTree().setContent("");
-        morsetree.getLeftTree().getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("");
-        morsetree.getLeftTree().getRightTree().getRightTree().getLeftTree().getRightTree().setContent("/");
-        morsetree.getLeftTree().getRightTree().getRightTree().getRightTree().getLeftTree().setContent("[]=/Pause]");
-        morsetree.getLeftTree().getRightTree().getRightTree().getRightTree().getRightTree().setContent("6");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getLeftTree().getLeftTree().setContent("1");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getLeftTree().getRightTree().setContent("");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getRightTree().getLeftTree().setContent("[Å/À]");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getRightTree().getRightTree().setContent("");
-        morsetree.getRightTree().getLeftTree().getRightTree().getLeftTree().getLeftTree().setContent("");
-        morsetree.getRightTree().getLeftTree().getRightTree().getLeftTree().getRightTree().setContent("[+/Spruchende]");
-        morsetree.getRightTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("È");
-        morsetree.getRightTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent("&");
-        morsetree.getRightTree().getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("2");
-        morsetree.getRightTree().getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("[n. b.]");
-        morsetree.getRightTree().getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("¿");
-        morsetree.getRightTree().getRightTree().getLeftTree().getRightTree().getRightTree().setContent("É");
-        morsetree.getRightTree().getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("3");
-        morsetree.getRightTree().getRightTree().getRightTree().getLeftTree().getRightTree().setContent("[Verstanden]");
-        morsetree.getRightTree().getRightTree().getRightTree().getRightTree().getLeftTree().setContent("4");
-        morsetree.getRightTree().getRightTree().getRightTree().getRightTree().getRightTree().setContent("5");
+        temp.getLeftTree().getLeftTree().getLeftTree().getLeftTree().setContent("CH");
+        temp.getLeftTree().getLeftTree().getLeftTree().getRightTree().setContent("Ö");
+        temp.getLeftTree().getLeftTree().getRightTree().getLeftTree().setContent("Q");
+        temp.getLeftTree().getLeftTree().getRightTree().getRightTree().setContent("Z");
+        temp.getLeftTree().getRightTree().getLeftTree().getLeftTree().setContent("Y");
+        temp.getLeftTree().getRightTree().getLeftTree().getRightTree().setContent("C");
+        temp.getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("X");
+        temp.getLeftTree().getRightTree().getRightTree().getRightTree().setContent("B");
+        temp.getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("J");
+        temp.getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("P");
+        temp.getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("Ä");
+        temp.getRightTree().getLeftTree().getRightTree().getRightTree().setContent("L");
+        temp.getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("Ü");
+        temp.getRightTree().getRightTree().getLeftTree().getRightTree().setContent("F");
+        temp.getRightTree().getRightTree().getRightTree().getLeftTree().setContent("V");
+        temp.getRightTree().getRightTree().getRightTree().getRightTree().setContent("H");
 
-        morsetree.getLeftTree().getLeftTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent(":");
-        morsetree.getLeftTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("[n. b.]");//working currently
-        morsetree.getLeftTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent("7");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("(");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("[Spruchanfang]");
-        morsetree.getLeftTree().getRightTree().getLeftTree().getRightTree().getRightTree().setContent("");
-        morsetree.getLeftTree().getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("");
-        morsetree.getLeftTree().getRightTree().getRightTree().getLeftTree().getRightTree().setContent("/");
-        morsetree.getLeftTree().getRightTree().getRightTree().getRightTree().getLeftTree().setContent("[]=/Pause]");
-        morsetree.getLeftTree().getRightTree().getRightTree().getRightTree().getRightTree().setContent("6");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getLeftTree().getLeftTree().setContent("1");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getLeftTree().getRightTree().setContent("");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getRightTree().getLeftTree().setContent("[Å/À]");
-        morsetree.getRightTree().getLeftTree().getLeftTree().getRightTree().getRightTree().setContent("");
-        morsetree.getRightTree().getLeftTree().getRightTree().getLeftTree().getLeftTree().setContent("");
-        morsetree.getRightTree().getLeftTree().getRightTree().getLeftTree().getRightTree().setContent("[+/Spruchende]");
-        morsetree.getRightTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("È");
-        morsetree.getRightTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent("&");
-        morsetree.getRightTree().getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("2");
-        morsetree.getRightTree().getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("[n. b.]");
-        morsetree.getRightTree().getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("¿");
-        morsetree.getRightTree().getRightTree().getLeftTree().getRightTree().getRightTree().setContent("É");
-        morsetree.getRightTree().getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("3");
-        morsetree.getRightTree().getRightTree().getRightTree().getLeftTree().getRightTree().setContent("[Verstanden]");
-        morsetree.getRightTree().getRightTree().getRightTree().getRightTree().getLeftTree().setContent("4");
-        morsetree.getRightTree().getRightTree().getRightTree().getRightTree().getRightTree().setContent("5");
+        temp.getLeftTree().getLeftTree().getLeftTree().getLeftTree().getLeftTree().setContent("0");
+        temp.getLeftTree().getLeftTree().getLeftTree().getLeftTree().getRightTree().setContent("9");
+        temp.getLeftTree().getLeftTree().getLeftTree().getRightTree().getLeftTree().setContent("");
+        temp.getLeftTree().getLeftTree().getLeftTree().getRightTree().getRightTree().setContent("8");
+        temp.getLeftTree().getLeftTree().getRightTree().getLeftTree().getLeftTree().setContent("Ñ");
+        temp.getLeftTree().getLeftTree().getRightTree().getLeftTree().getRightTree().setContent("");
+        temp.getLeftTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("[n. b.]");
+        temp.getLeftTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent("7");
+        temp.getLeftTree().getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("");
+        temp.getLeftTree().getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("(");
+        temp.getLeftTree().getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("[Spruchanfang]");
+        temp.getLeftTree().getRightTree().getLeftTree().getRightTree().getRightTree().setContent("");
+        temp.getLeftTree().getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("");
+        temp.getLeftTree().getRightTree().getRightTree().getLeftTree().getRightTree().setContent("/");
+        temp.getLeftTree().getRightTree().getRightTree().getRightTree().getLeftTree().setContent("[]=/Pause]");
+        temp.getLeftTree().getRightTree().getRightTree().getRightTree().getRightTree().setContent("6");
+        temp.getRightTree().getLeftTree().getLeftTree().getLeftTree().getLeftTree().setContent("1");
+        temp.getRightTree().getLeftTree().getLeftTree().getLeftTree().getRightTree().setContent("");
+        temp.getRightTree().getLeftTree().getLeftTree().getRightTree().getLeftTree().setContent("[Å/À]");
+        temp.getRightTree().getLeftTree().getLeftTree().getRightTree().getRightTree().setContent("");
+        temp.getRightTree().getLeftTree().getRightTree().getLeftTree().getLeftTree().setContent("");
+        temp.getRightTree().getLeftTree().getRightTree().getLeftTree().getRightTree().setContent("[+/Spruchende]");
+        temp.getRightTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("È");
+        temp.getRightTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent("&");
+        temp.getRightTree().getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("2");
+        temp.getRightTree().getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("[n. b.]");
+        temp.getRightTree().getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("¿");
+        temp.getRightTree().getRightTree().getLeftTree().getRightTree().getRightTree().setContent("É");
+        temp.getRightTree().getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("3");
+        temp.getRightTree().getRightTree().getRightTree().getLeftTree().getRightTree().setContent("[Verstanden]");
+        temp.getRightTree().getRightTree().getRightTree().getRightTree().getLeftTree().setContent("4");
+        temp.getRightTree().getRightTree().getRightTree().getRightTree().getRightTree().setContent("5");
+
+        temp.getLeftTree().getLeftTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent(":");
+        temp.getLeftTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("[n. b.]");//working currently
+        temp.getLeftTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent("7");
+        temp.getLeftTree().getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("");
+        temp.getLeftTree().getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("(");
+        temp.getLeftTree().getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("[Spruchanfang]");
+        temp.getLeftTree().getRightTree().getLeftTree().getRightTree().getRightTree().setContent("");
+        temp.getLeftTree().getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("");
+        temp.getLeftTree().getRightTree().getRightTree().getLeftTree().getRightTree().setContent("/");
+        temp.getLeftTree().getRightTree().getRightTree().getRightTree().getLeftTree().setContent("[]=/Pause]");
+        temp.getLeftTree().getRightTree().getRightTree().getRightTree().getRightTree().setContent("6");
+        temp.getRightTree().getLeftTree().getLeftTree().getLeftTree().getLeftTree().setContent("1");
+        temp.getRightTree().getLeftTree().getLeftTree().getLeftTree().getRightTree().setContent("");
+        temp.getRightTree().getLeftTree().getLeftTree().getRightTree().getLeftTree().setContent("[Å/À]");
+        temp.getRightTree().getLeftTree().getLeftTree().getRightTree().getRightTree().setContent("");
+        temp.getRightTree().getLeftTree().getRightTree().getLeftTree().getLeftTree().setContent("");
+        temp.getRightTree().getLeftTree().getRightTree().getLeftTree().getRightTree().setContent("[+/Spruchende]");
+        temp.getRightTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("È");
+        temp.getRightTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent("&");
+        temp.getRightTree().getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("2");
+        temp.getRightTree().getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("[n. b.]");
+        temp.getRightTree().getRightTree().getLeftTree().getRightTree().getLeftTree().setContent("¿");
+        temp.getRightTree().getRightTree().getLeftTree().getRightTree().getRightTree().setContent("É");
+        temp.getRightTree().getRightTree().getRightTree().getLeftTree().getLeftTree().setContent("3");
+        temp.getRightTree().getRightTree().getRightTree().getLeftTree().getRightTree().setContent("[Verstanden]");
+        temp.getRightTree().getRightTree().getRightTree().getRightTree().getLeftTree().setContent("4");
+        temp.getRightTree().getRightTree().getRightTree().getRightTree().getRightTree().setContent("5");
+
+        return temp;
     }
 }
