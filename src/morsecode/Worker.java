@@ -7,18 +7,23 @@ public class Worker {
         morsetree = buildTree();
     }
 
-    public char translateToChar (String pInput) {
-        BinaryTree<String> temp = morsetree;
+    public String translateToChar (String pInput) {
+        BinaryTree<String> temp;
+        String output = "";
 
-        for (Character i : pInput.toCharArray()) {
-            if (i.equals('.')) {
-                temp = temp.getRightTree();
-            } else if (i.equals('-')) {
-                temp = temp.getLeftTree();
+        for (String i : pInput.split(" ")) {
+            temp = morsetree;
+            for (Character j : i.toCharArray()) {
+                if (j.equals('.')) {
+                    temp = temp.getRightTree();
+                } else if (j.equals('-')) {
+                    temp = temp.getLeftTree();
+                }
             }
+            output += temp.getContent().charAt(0);
         }
 
-        return temp.getContent().charAt(0);
+        return output;
     }
 
     private BinaryTree<String> buildTree() {
