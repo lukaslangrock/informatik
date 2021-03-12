@@ -10,7 +10,7 @@ public class main {
         String input = TIO.AnfrageString("Enter input to translate: ");
 
         Worker worker = new Worker();
-        String output = worker.translate(input);
+        char output = worker.translateToChar(input);
 
         TIO.prt("Translated output: '" + output + "'");
     }

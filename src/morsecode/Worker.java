@@ -1,20 +1,31 @@
 package morsecode;
 
 public class Worker {
-    BinaryTree<String> morsetree = new BinaryTree<String>();
+    BinaryTree<String> morsetree;
 
-    public String translate(String input) {
-        String output = null;
+    public Worker() {
+        buildTree();
+    }
 
+    public char translateToChar (String pInput) {
+        BinaryTree<String> temp = morsetree;
 
+        for (Character i : pInput.toCharArray()) {
+            if (i.equals('.')) {
+                temp = temp.getRightTree();
+            } else if (i.equals('-')) {
+                temp = temp.getLeftTree();
+            }
+        }
 
-        return output;
+        return temp.getContent().charAt(0);
     }
 
     private void buildTree() {
         // left tree: -
         // right tree: .
         
+        morsetree = new BinaryTree<String>();
         morsetree.setContent("");
 
         morsetree.getLeftTree().setContent("T");
