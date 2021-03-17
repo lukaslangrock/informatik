@@ -32,7 +32,7 @@ public class Worker {
     // Credit: https://git.langrock.info/lEON/Informatik/src/commit/bcc3c1141c6f22e2bc1d3c8e2df14d51e5d103a1/src/Morse/Morse.java
     {
         String encodedText = "";
-        for(char i : pInput.toLowerCase().toCharArray())
+        for(char i : pInput.toUpperCase().toCharArray())
         {
             if(Character.isLetterOrDigit(i))
                 encodedText += translateCharToMorse(Character.toString(i), morsetree) + "|";
@@ -49,11 +49,11 @@ public class Worker {
             // recursion
             if (!pEntrypoint.getLeftTree().isEmpty()) {
                 String temp = translateCharToMorse(pInput, pEntrypoint.getLeftTree());
-                if (temp != "error" && temp != "") { return "-" + temp; }
+                if (temp != "error" && temp != null) { return "-" + temp; }
             }
             if (!pEntrypoint.getRightTree().isEmpty()) {
                 String temp = translateCharToMorse(pInput, pEntrypoint.getRightTree());
-                if (temp != "error" && temp != "") { return "." + temp; }
+                if (temp != "error" && temp != null) { return "." + temp; }
             }
             return "error";
         }
