@@ -26,6 +26,23 @@ public class Worker {
         return output;
     }
 
+    public String translateCharToMorse(String pInput, BinaryTree<String> pEntrypoint) {
+        if (pEntrypoint.getContent().equals(pInput)) {
+            return "";
+        } else {
+            // recursion
+            if (pEntrypoint.getLeftTree() != null) {
+                String temp = translateCharToMorse(pInput, pEntrypoint.getLeftTree());
+                if (temp != null) { return "-" + temp; }
+            }
+            if (pEntrypoint.getRightTree() != null) {
+                String temp = translateCharToMorse(pInput, pEntrypoint.getRightTree());
+                if (temp != null) { return "." + temp; }
+            }
+            return null;
+        }
+    }
+
     private BinaryTree<String> buildTree() {
         // left tree: -
         // right tree: .
