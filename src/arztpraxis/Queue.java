@@ -1,4 +1,4 @@
-package Arztpraxis;
+package arztpraxis;
 
 /**
  * <p>

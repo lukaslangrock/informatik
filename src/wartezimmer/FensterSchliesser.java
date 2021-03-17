@@ -1,4 +1,4 @@
-package Wartezimmer;
+package wartezimmer;
 
 /**
  * Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule, Materialien zum schulinternen Lehrplan Informatik SII

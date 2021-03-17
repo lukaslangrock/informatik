@@ -1,4 +1,4 @@
-package Wartezimmer;
+package wartezimmer;
 
 import java.awt.event.*;
 

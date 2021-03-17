@@ -1,4 +1,4 @@
-package Sortieralgorythmen;
+package sorting;
 
 public class Selectionsort {
     public int[] Entrypoint(int[]array)

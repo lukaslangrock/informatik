@@ -1,4 +1,4 @@
-package RPG;
+package rollenspiel;
 
 public class Monster extends Spielecharakter {
     public Monster(int pAngriffswert, int pLebenspunkte) {

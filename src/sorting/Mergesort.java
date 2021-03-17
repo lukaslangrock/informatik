@@ -1,11 +1,7 @@
-package Sortieralgorythmen;
-
-import java.util.Random;
-
-import lib.TIO;
+package sorting;
 
 public class Mergesort {
-    private long recursionTracker, compareTracker, appendTracker;
+    private long recursionTracker, compareTracker;
 
     public int[] Entrypoint(int[] array) {
         recursionTracker = 0;

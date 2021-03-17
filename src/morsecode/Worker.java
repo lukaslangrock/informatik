@@ -1,7 +1,5 @@
 package morsecode;
 
-import lib.TIO;
-
 public class Worker {
     private final BinaryTree<String> morsetree;
 

@@ -1,4 +1,4 @@
-package RPG;
+package rollenspiel;
 
 public class Waffe {
     private final String material;

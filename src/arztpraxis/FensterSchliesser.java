@@ -1,4 +1,4 @@
-package Arztpraxis;
+package arztpraxis;
 
 /**
  * <p>Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule, Materialien zum schulinternen Lehrplan Informatik SII</p>

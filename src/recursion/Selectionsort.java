@@ -1,4 +1,4 @@
-package Rekursion;
+package recursion;
 
 import lib.Dice;
 import lib.List;

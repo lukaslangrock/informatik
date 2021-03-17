@@ -1,4 +1,4 @@
-package Abfahrtslauf;
+package abfahrtslauf;
 
 /**
  * <p>

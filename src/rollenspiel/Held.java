@@ -1,4 +1,4 @@
-package RPG;
+package rollenspiel;
 
 public class Held extends Spielecharakter {
     private Waffe waffe;

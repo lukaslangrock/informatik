@@ -1,4 +1,4 @@
-package RPG;
+package rollenspiel;
 
 import lib.TIO;
 
@@ -29,23 +29,23 @@ public class Story {
         for(int i=0; i<gnulinuxbr.length; i++)
             gnulinuxbr[i] = new Monster(zufall.wuerfeln(),zufall.wuerfeln());
 
-        if (TIO.AnfrageString("Waehle Charakter: Z fuer Zauberer oder K fuer Krieger").toLowerCase().contains("k"))
-            held = new Krieger(TIO.AnfrageString("Name:"), TIO.AnfrageInt("Staerke:"),
-                    TIO.AnfrageInt("Lebenspunkte:"), TIO.AnfrageInt("Ausdauer:"));
+        if (TIO.AskString("Waehle Charakter: Z fuer Zauberer oder K fuer Krieger").toLowerCase().contains("k"))
+            held = new Krieger(TIO.AskString("Name:"), TIO.AskInt("Staerke:"),
+                    TIO.AskInt("Lebenspunkte:"), TIO.AskInt("Ausdauer:"));
         else
-            held = new Zauberer(TIO.AnfrageString("Name:"), TIO.AnfrageInt("Staerke:"),
-                    TIO.AnfrageInt("Lebenspunkte:"), TIO.AnfrageInt("Zauberkraft:"));
+            held = new Zauberer(TIO.AskString("Name:"), TIO.AskInt("Staerke:"),
+                    TIO.AskInt("Lebenspunkte:"), TIO.AskInt("Zauberkraft:"));
 
         TIO.prt("Tutorial: Y oder y fuer Ja.");
         TIO.prt("Tutorial: N oder n fuer Nein.");
 
-        while (!TIO.AnfrageString("Moechtest du gegen das Boese in der Welt kaempfen?").toLowerCase().contains("y"))
+        while (!TIO.AskString("Moechtest du gegen das Boese in der Welt kaempfen?").toLowerCase().contains("y"))
             TIO.prt("Must du aber!");
 
         TIO.prt("Na dann, geh in die weite Welt und bekaempfe die greslichen Monster der polygopolischen und monopolistischen Maerkte!");
         TIO.prt("Du siehst ein Monster in der Ferne; es ist Oculus!");
 
-        while (!TIO.AnfrageString("Moechtest du angreifen?").toLowerCase().contains("y"))
+        while (!TIO.AskString("Moechtest du angreifen?").toLowerCase().contains("y"))
             TIO.prt("Komm schon, das ist ein einfacher Gegner.");
 
         while (oculus.getLebenspunkte() > 0) {
@@ -58,7 +58,7 @@ public class Story {
         TIO.prt("Aber was ist da hinten? Ist das... Apple Inc.?");
         TIO.prt("");
 
-        if (TIO.AnfrageString("Angreifen?").toLowerCase().contains("y")) {
+        if (TIO.AskString("Angreifen?").toLowerCase().contains("y")) {
             TIO.prt("Class action lawsuit, nice.");
             held.angreifen(apple, regel);
         }

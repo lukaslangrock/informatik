@@ -1,4 +1,4 @@
-package Arztpraxis;
+package arztpraxis;
 
 public class Patient
 {

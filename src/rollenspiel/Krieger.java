@@ -1,4 +1,4 @@
-package RPG;
+package rollenspiel;
 
 public class Krieger extends Held {
     private int ausdauer;

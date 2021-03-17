@@ -1,4 +1,4 @@
-package Rekursion;
+package recursion;
 
 public class Mathe {
     /* Aufgabe S. 105 Nr. 2 */

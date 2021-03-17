@@ -1,4 +1,4 @@
-package RPG;
+package rollenspiel;
 
 public class Kampfregel {
     private final Wuerfel wuerfel;

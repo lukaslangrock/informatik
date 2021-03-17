@@ -1,6 +1,4 @@
-package Sortieralgorythmen;
-
-import java.nio.DoubleBuffer;
+package sorting;
 
 import lib.Dice;
 

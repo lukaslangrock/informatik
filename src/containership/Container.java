@@ -1,4 +1,4 @@
-package Containership;
+package containership;
 
 import jdk.jfr.ContentType;
 

@@ -1,4 +1,4 @@
-package RPG;
+package rollenspiel;
 
 public class Rangliste {
 

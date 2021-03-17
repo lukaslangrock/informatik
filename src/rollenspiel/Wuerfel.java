@@ -1,4 +1,4 @@
-package RPG;
+package rollenspiel;
 
 import java.util.Random;
 

@@ -1,12 +1,12 @@
-package Containership;
+package containership;
 
 import lib.TIO;
 
 public class Controller {
     public static void main(String[] args) {
         TIO.prt("Initializing Containership...");
-        Containership ship = new Containership(TIO.AnfrageInt("Height of Conatinership:"),
-                TIO.AnfrageInt("Rows of Conatinership:"));
+        Containership ship = new Containership(TIO.AskInt("Height of Conatinership:"),
+                TIO.AskInt("Rows of Conatinership:"));
         TIO.prt("Containership initialized ✔");
 
         do {
@@ -16,7 +16,7 @@ public class Controller {
             TIO.prt("get-priority: Get all containers with specific priority");
             TIO.prt("purge: Purge entire containership");
 
-            switch (TIO.AnfrageString("Select option: ".toLowerCase())) {
+            switch (TIO.AskString("Select option: ".toLowerCase())) {
                 case "exit":
                     break;
 
@@ -24,12 +24,12 @@ public class Controller {
                     break;
 
                 case "get-first":
-                    Container firstContainer = ship.getFirstContainerFromRow(TIO.AnfrageInt("Select row:"), false);
+                    Container firstContainer = ship.getFirstContainerFromRow(TIO.AskInt("Select row:"), false);
                     TIO.prt(firstContainer.getContentType().toString());
                     break;
 
                 case "get-priority":
-                    Container[] data2array = ship.getAllContainersWithPriority(TIO.AnfrageInt("Select priority:"), false);
+                    //Container[] data2array = ship.getAllContainersWithPriority(TIO.AskInt("Select priority:"), false);
                     //TIO.prt(data2);
                     break;
 
@@ -37,7 +37,7 @@ public class Controller {
                     ship.purgeContainers();
                     break;
             }
-        } while (TIO.AnfrageString("\nContinue? ").toLowerCase().equals("yes"));
+        } while (TIO.AskString("\nContinue? ").toLowerCase().equals("yes"));
 
         TIO.prt("\nGoodbye.");
     }

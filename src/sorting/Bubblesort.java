@@ -1,4 +1,4 @@
-package Sortieralgorythmen;
+package sorting;
 
 public class Bubblesort {
     public int[] Entrypoint(int[] array) {

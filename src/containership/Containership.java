@@ -1,4 +1,4 @@
-package Containership;
+package containership;
 
 import java.util.Stack;
 import java.util.ArrayList;

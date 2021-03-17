@@ -1,4 +1,4 @@
-package Wartezimmer;
+package wartezimmer;
 
 public class Patient
 {

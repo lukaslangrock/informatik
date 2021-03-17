@@ -7,7 +7,7 @@ public class main {
      * Main method for running strings against the lalelu-langauge.
      */
     public static void main(String[] args) {
-        String input = TIO.AnfrageString("Enter input to check: ");
+        String input = TIO.AskString("Enter input to check: ");
         TIO.prt("Running '" + input + "' against Scanner...");
 
         Scanner scanner = new Scanner();

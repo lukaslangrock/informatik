@@ -1,4 +1,4 @@
-package Abfahrtslauf;
+package abfahrtslauf;
 
 /**
  * Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule, Materialien zum schulinternen Lehrplan Informatik SII
