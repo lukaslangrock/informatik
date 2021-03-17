@@ -9,7 +9,7 @@ public class Worker {
         morsetree = buildTree();
     }
 
-    public String translateToChar (String pInput) {
+    public String translateToChar(String pInput) {
         BinaryTree<String> temp;
         String output = "";
 
@@ -29,12 +29,13 @@ public class Worker {
     }
 
     public String translateStringToMorse(String pInput)
-    // Credit: https://git.langrock.info/lEON/Informatik/src/commit/bcc3c1141c6f22e2bc1d3c8e2df14d51e5d103a1/src/Morse/Morse.java
+    // Credit:
+    // https://git.langrock.info/lEON/Informatik/src/commit/bcc3c1141c6f22e2bc1d3c8e2df14d51e5d103a1/src/Morse/Morse.java
+    // (modified)
     {
         String encodedText = "";
-        for(char i : pInput.toUpperCase().toCharArray())
-        {
-            if(Character.isLetterOrDigit(i))
+        for (char i : pInput.toUpperCase().toCharArray()) {
+            if (Character.isLetterOrDigit(i))
                 encodedText += translateCharToMorse(Character.toString(i), morsetree) + "|";
             else if (Character.isWhitespace(i))
                 encodedText += i;
@@ -49,22 +50,24 @@ public class Worker {
             // recursion
             if (!pEntrypoint.getLeftTree().isEmpty()) {
                 String temp = translateCharToMorse(pInput, pEntrypoint.getLeftTree());
-                if (temp != "error" && temp != null) { return "-" + temp; }
+                if (temp != "error" && temp != null) {
+                    return "-" + temp;
+                }
             }
             if (!pEntrypoint.getRightTree().isEmpty()) {
                 String temp = translateCharToMorse(pInput, pEntrypoint.getRightTree());
-                if (temp != "error" && temp != null) { return "." + temp; }
+                if (temp != "error" && temp != null) {
+                    return "." + temp;
+                }
             }
             return "error";
         }
     }
 
-    
-
     private BinaryTree<String> buildTree() {
         // left tree: -
         // right tree: .
-        
+
         BinaryTree<String> temp = new BinaryTree<String>();
 
         temp.setContent("");
@@ -137,7 +140,8 @@ public class Worker {
         temp.getRightTree().getRightTree().getRightTree().getRightTree().getRightTree().setContent("5");
 
         temp.getLeftTree().getLeftTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent(":");
-        temp.getLeftTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("[n. b.]");//working currently
+        temp.getLeftTree().getLeftTree().getRightTree().getRightTree().getLeftTree().setContent("[n. b.]");// working
+                                                                                                           // currently
         temp.getLeftTree().getLeftTree().getRightTree().getRightTree().getRightTree().setContent("7");
         temp.getLeftTree().getRightTree().getLeftTree().getLeftTree().getLeftTree().setContent("");
         temp.getLeftTree().getRightTree().getLeftTree().getLeftTree().getRightTree().setContent("(");
