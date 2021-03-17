@@ -2,9 +2,9 @@ package lib;
 
 import java.util.Scanner;
 
-public class TIO {
-    //private Scanner eingabe;
+// https://git.langrock.info/lEON/Informatik/src/commit/bcc3c1141c6f22e2bc1d3c8e2df14d51e5d103a1/src/lib/TIO.java
 
+public class TIO {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -17,6 +17,10 @@ public class TIO {
 
     public static final String COLOR_OUTPUT = ANSI_CYAN;
     public static final String COLOR_QUESTION = ANSI_GREEN;
+    public static final String COLOR_ERROR = ANSI_RED;
+    public static final String COLOR_WARNING = ANSI_YELLOW;
+
+    static Scanner input = new Scanner(System.in);
 
     // Shorthand for System.out.println(x);
     static public void prt(String x){
@@ -29,48 +33,50 @@ public class TIO {
         System.out.flush();
     }
 
-    static public String AnfrageString(String pAnfrage){
-        System.out.println(COLOR_QUESTION + pAnfrage + ANSI_RESET);
+    static public String AskString(String pRequest){
+        System.out.println(COLOR_QUESTION + pRequest + ANSI_RESET);
 
-        String text;
-        Scanner eingabe = new Scanner(System.in);
-        try{
-            text = eingabe.nextLine();
+        String text = null;
+        while(text == null)
+        {
+            try{
+                text = input.nextLine();
+            }
+            catch(Exception e){
+                System.out.println(COLOR_WARNING+ "Please provide a correct input!" + ANSI_RESET);
+                // e.printStackTrace();
+            }
         }
-        catch(Exception InputMismatchException){
-            text = AnfrageString(pAnfrage);
-        }
-        eingabe.close();
         return text;
     }
 
-    static public int AnfrageInt(String pAnfrage){
-        System.out.println(COLOR_QUESTION + pAnfrage + ANSI_RESET);
-
-        int integer;
-        Scanner eingabe = new Scanner(System.in);
-        try{
-            integer = eingabe.nextInt();
+    static public int AskInt(String pRequest){
+        System.out.println(COLOR_QUESTION + pRequest + ANSI_RESET);
+        Integer number = null;
+        while(number == null){
+            try{
+                number = Integer.parseInt(input.nextLine());
+            }
+            catch(NumberFormatException e){
+                System.out.println(COLOR_WARNING+ "Please provide a correct input!" + ANSI_RESET);
+                // e.printStackTrace();
+            }
         }
-        catch(Exception InputMismatchException){
-            integer = AnfrageInt(pAnfrage);
-        }
-        eingabe.close();
-        return integer;
+        return number;
     }
 
-    static public double AnfrageDouble(String pAnfrage){
-        System.out.println(COLOR_QUESTION + pAnfrage + ANSI_RESET);
+    static public double AskDouble(String pRequest){
+        System.out.println(COLOR_QUESTION + pRequest + ANSI_RESET);
 
-        double komma;
-        Scanner eingabe = new Scanner(System.in);
-        try{
-            komma = eingabe.nextDouble();
-        }
-        catch(Exception InputMismatchException){
-            komma = AnfrageDouble(pAnfrage);
-        }
-        eingabe.close();
-        return komma;
+        Double comma = null;
+        while(comma == null)
+            try{
+                comma = Double.parseDouble(input.nextLine());
+            }
+            catch(NumberFormatException e){
+                System.out.println(COLOR_WARNING+ "Please provide a correct input!" + ANSI_RESET);
+                // e.printStackTrace();
+            }
+        return comma;
     }
 }
