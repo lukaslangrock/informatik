@@ -1,5 +1,7 @@
 package abfahrtslauf;
 
+import lib.List;
+
 /**
  * Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule,
  * Materialien zum schulinternen Lehrplan Informatik SII
