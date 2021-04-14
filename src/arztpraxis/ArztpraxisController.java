@@ -1,6 +1,7 @@
 package arztpraxis;
 
 import lib.Queue;
+
 /**
  * <p>Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule, Materialien zum schulinternen Lehrplan Informatik SII</p>
  * *

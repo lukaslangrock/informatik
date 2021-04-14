@@ -1,6 +1,7 @@
 package morsecode;
 
 import lib.BinaryTree;
+
 public class Worker {
     private final BinaryTree<String> morsetree;
 
