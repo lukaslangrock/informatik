@@ -1,4 +1,4 @@
-package morsecode;
+package lib;
 
 /**
  * <p>
