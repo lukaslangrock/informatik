@@ -16,6 +16,7 @@ Repo for computer science projects
 - [Rohrpost (2021-KW8)](src/rohrpost)
 - [lalelu-Sprache (2021-KW8)](src/lalelu)
 - [Morsecode (2021-KW10)](src/morsecode)
+- [Termbaum (2021-KW15)](src/termtree)
 
 ### Other
 
