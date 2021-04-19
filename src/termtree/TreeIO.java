@@ -1,6 +1,7 @@
 package termtree;
 
 import lib.BinaryTree;
+import lib.List;
 
 public class TreeIO {
     private static Termchar[] subTermtreeArray(Termchar[] pInput) {
@@ -21,9 +22,6 @@ public class TreeIO {
         if (pInput[0].getIsOperator()) {
             tree.setLeftTree(treeFromPrefix(subTermtreeArray(pInput)));
             tree.setRightTree(treeFromPrefix(subTermtreeArray(pInput)));
-
-            // rekursion: left tree mit pInput[] -1 aktueller i
-            // rekursion same but right
         }
 
         return tree;
@@ -37,15 +35,45 @@ public class TreeIO {
         return null;
     }
 
-    public static Termchar[] treeToPrefix(BinaryTree<Termchar> pInput) {
-        return null;
+    public static String treeToPrefix(BinaryTree<Termchar> pInput) {
+        String prefix = new String();
+
+        prefix = String.valueOf(pInput.getContent().getContent());
+        if (!pInput.getLeftTree().isEmpty()) {
+            prefix += treeToPrefix(pInput.getLeftTree());
+        }
+        if (!pInput.getRightTree().isEmpty()) {
+            prefix += treeToPrefix(pInput.getRightTree());
+        }
+
+        return prefix;
     }
 
-    public static Termchar[] treeToInfix(BinaryTree<Termchar> pInput) {
-        return null;
+    public static String treeToInfix(BinaryTree<Termchar> pInput) {
+        String infix = new String();
+
+        if (!pInput.getLeftTree().isEmpty()) {
+            infix = treeToInfix(pInput.getLeftTree());
+        }
+        infix += String.valueOf(pInput.getContent().getContent());
+        if (!pInput.getRightTree().isEmpty()) {
+            infix += treeToInfix(pInput.getRightTree());
+        }
+
+        return infix;
     }
 
-    public static Termchar[] treeToPostfix(BinaryTree<Termchar> pInput) {
-        return null;
+    public static String treeToPostfix(BinaryTree<Termchar> pInput) {
+        String postfix = new String();
+
+        if (!pInput.getLeftTree().isEmpty()) {
+            postfix = treeToPostfix(pInput.getLeftTree());
+        }
+        if (!pInput.getRightTree().isEmpty()) {
+            postfix += treeToPostfix(pInput.getRightTree());
+        }
+        postfix += String.valueOf(pInput.getContent().getContent());
+
+        return postfix;
     }
 }
