@@ -1,44 +1,37 @@
 package termtree;
 
 import lib.BinaryTree;
-import lib.List;
 
 public class TreeIO {
-    private static Termchar[] subTermtreeArray(Termchar[] pInput) {
-        Termchar[] output = new Termchar[pInput.length -1];
-        for (int i = 1; i < pInput.length - 1; i++) {
-            output[i -1] = pInput[i];
-        }
-        return output;
-    }
+    private static final String operatorPool = "+-/*";
 
-    public static BinaryTree<Termchar> treeFromPrefix(Termchar[] pInput) {
-        BinaryTree<Termchar> tree = new BinaryTree<Termchar>();
-        if (pInput == null || Character.isWhitespace(pInput[0].getContent())) {
+    public static BinaryTree<String> treeFromPrefix(String pInput) {
+        BinaryTree<String> tree = new BinaryTree<String>();
+        if (pInput == null || Character.isWhitespace(pInput.charAt(0))) {
             return null;
         }
 
-        tree.setContent(pInput[0]);
-        if (pInput[0].getIsOperator()) {
-            tree.setLeftTree(treeFromPrefix(subTermtreeArray(pInput)));
-            tree.setRightTree(treeFromPrefix(subTermtreeArray(pInput)));
+        tree.setContent(String.valueOf(pInput.charAt(0)));
+        if (operatorPool.indexOf(pInput.charAt(0)) != -1) { // check if start of input string is an operator
+            tree.setLeftTree(treeFromPrefix(pInput.substring(1)));
+            tree.setRightTree(treeFromPrefix(pInput.substring(1)));
         }
 
         return tree;
     }
 
-    public static BinaryTree<Termchar> treeFromInfix(Termchar[] pInput) {
+    public static BinaryTree<String> treeFromInfix(String pInput) {
         return null;
     }
 
-    public static BinaryTree<Termchar> treeFromPostfix(Termchar[] pInput) {
+    public static BinaryTree<String> treeFromPostfix(String pInput) {
         return null;
     }
 
-    public static String treeToPrefix(BinaryTree<Termchar> pInput) {
+    public static String treeToPrefix(BinaryTree<String> pInput) {
         String prefix = new String();
 
-        prefix = String.valueOf(pInput.getContent().getContent());
+        prefix = String.valueOf(pInput.getContent());
         if (!pInput.getLeftTree().isEmpty()) {
             prefix += treeToPrefix(pInput.getLeftTree());
         }
@@ -49,13 +42,13 @@ public class TreeIO {
         return prefix;
     }
 
-    public static String treeToInfix(BinaryTree<Termchar> pInput) {
+    public static String treeToInfix(BinaryTree<String> pInput) {
         String infix = new String();
 
         if (!pInput.getLeftTree().isEmpty()) {
             infix = treeToInfix(pInput.getLeftTree());
         }
-        infix += String.valueOf(pInput.getContent().getContent());
+        infix += String.valueOf(pInput.getContent());
         if (!pInput.getRightTree().isEmpty()) {
             infix += treeToInfix(pInput.getRightTree());
         }
@@ -63,7 +56,7 @@ public class TreeIO {
         return infix;
     }
 
-    public static String treeToPostfix(BinaryTree<Termchar> pInput) {
+    public static String treeToPostfix(BinaryTree<String> pInput) {
         String postfix = new String();
 
         if (!pInput.getLeftTree().isEmpty()) {
@@ -72,7 +65,7 @@ public class TreeIO {
         if (!pInput.getRightTree().isEmpty()) {
             postfix += treeToPostfix(pInput.getRightTree());
         }
-        postfix += String.valueOf(pInput.getContent().getContent());
+        postfix += String.valueOf(pInput.getContent());
 
         return postfix;
     }

@@ -3,57 +3,37 @@ package termtree;
 import lib.BinaryTree;
 
 public class Termtree {
-    private BinaryTree<Termchar> tree;
+    private BinaryTree<String> tree;
 
     public Termtree() {
-        tree = new BinaryTree<Termchar>();
+        tree = new BinaryTree<String>();
     }
 
-    public BinaryTree<Termchar> getContent() {
+    public BinaryTree<String> getContent() {
         return tree;
     }
 
-    private Termchar[] stringToTermchars(String pInput) {
-        Termchar[] termchars = new Termchar[pInput.length()];
-        for (int i = 0; i < pInput.length(); i++) {
-            termchars[i] = new Termchar(pInput.charAt(i));
-        } return termchars;
-    }
-
-    private String stringFromTermchars(Termchar[] pInput) {
-        String output = new String();
-        for (Termchar tc : pInput) {
-            output += tc.getContent();
-        } return output;
-    }
-
     public void importFromPrefix(String pInput) {
-        Termchar[] inputChars = stringToTermchars(pInput);
-        tree = TreeIO.treeFromPrefix(inputChars);
+        tree = TreeIO.treeFromPrefix(pInput);
     }
 
     public void importFromInfix(String pInput) {
-        Termchar[] inputChars = stringToTermchars(pInput);
-        tree = TreeIO.treeFromInfix(inputChars);
+        tree = TreeIO.treeFromInfix(pInput);
     }
 
     public void importFromPostfix(String pInput) {
-        Termchar[] inputChars = stringToTermchars(pInput);
-        tree = TreeIO.treeFromPostfix(inputChars);
+        tree = TreeIO.treeFromPostfix(pInput);
     }
 
     public String exportToPrefix() {
-        Termchar[] outputChars = TreeIO.treeToPrefix(tree);
-        return stringFromTermchars(outputChars);
+        return TreeIO.treeToPrefix(tree);
     }
 
     public String exportToInfix() {
-        Termchar[] outputChars = TreeIO.treeToInfix(tree);
-        return stringFromTermchars(outputChars);
+        return TreeIO.treeToInfix(tree);
     }
 
     public String exportToPostfix() {
-        Termchar[] outputChars = TreeIO.treeToPostfix(tree);
-        return stringFromTermchars(outputChars);
+        return TreeIO.treeToPostfix(tree);
     }
 }
