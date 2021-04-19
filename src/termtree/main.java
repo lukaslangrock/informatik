@@ -17,16 +17,19 @@ public class main {
             case 1:
                 termtree.importFromPrefix(importString);
                 TIO.prt("Termtree was imported from Prefix!\n");
+                restartLoop = true;
                 break;
 
             case 2:
                 termtree.importFromInfix(importString);
                 TIO.prt("Termtree was imported from Infix!\n");
+                restartLoop = true;
                 break;
 
             case 3:
                 termtree.importFromPostfix(importString);
                 TIO.prt("Termtree was imported from Postfix!\n");
+                restartLoop = true;
                 break;
 
             default:
