@@ -13,30 +13,47 @@ public class Termtree {
         return tree;
     }
 
-    public boolean importFromPrefix() {
-        // boolean returns true if the import was successful.
-        return false;
+    private Termchar[] stringToTermchars(String pInput) {
+        Termchar[] termchars = new Termchar[pInput.length()];
+        for (int i = 0; i < pInput.length(); i++) {
+            termchars[i] = new Termchar(pInput.charAt(i));
+        } return termchars;
     }
 
-    public boolean importFromInfix() {
-        // boolean returns true if the import was successful.
-        return false;
+    private String stringFromTermchars(Termchar[] pInput) {
+        String output = new String();
+        for (Termchar tc : pInput) {
+            output += tc.getContent();
+        } return output;
     }
 
-    public boolean importFromPostfix() {
-        // boolean returns true if the import was successful.
-        return false;
+    public void importFromPrefix(String pInput) {
+        Termchar[] inputChars = stringToTermchars(pInput);
+        tree = TreeIO.treeFromPrefix(inputChars);
     }
 
-    public String exportToPreorder() {
-        return null;
+    public void importFromInfix(String pInput) {
+        Termchar[] inputChars = stringToTermchars(pInput);
+        tree = TreeIO.treeFromInfix(inputChars);
     }
 
-    public String exportToInorder() {
-        return null;
+    public void importFromPostfix(String pInput) {
+        Termchar[] inputChars = stringToTermchars(pInput);
+        tree = TreeIO.treeFromPostfix(inputChars);
     }
 
-    public String exportToPostorder() {
-        return null;
+    public String exportToPrefix() {
+        Termchar[] outputChars = TreeIO.treeToPrefix(tree);
+        return stringFromTermchars(outputChars);
+    }
+
+    public String exportToInfix() {
+        Termchar[] outputChars = TreeIO.treeToInfix(tree);
+        return stringFromTermchars(outputChars);
+    }
+
+    public String exportToPostfix() {
+        Termchar[] outputChars = TreeIO.treeToPostfix(tree);
+        return stringFromTermchars(outputChars);
     }
 }
