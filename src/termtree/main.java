@@ -1,7 +1,5 @@
 package termtree;
 
-import org.graalvm.compiler.lir.amd64.vector.AMD64VectorMove.RestoreRegistersOp;
-
 import lib.TIO;
 
 public class main {
