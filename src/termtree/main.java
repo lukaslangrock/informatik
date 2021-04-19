@@ -39,25 +39,17 @@ public class main {
             
             while (restartLoop) {
                 restartLoop = false; // makes the user select to restart/cancel
-                int exportFormat = TIO.AskInt("Export the tree using prefix[1], infix[2] or postfix[3] or overwrite[4] it with a different tree: ");
+                int exportFormat = TIO.AskInt("Would you like to export[1] the tree or import[2] a new one? [1/2]: ");
 
                 switch (exportFormat) {
                 case 1:
-                    termtree.importFromPrefix(importString);
-                    TIO.prt("Tree was imported from Prefix!\n");
+                    TIO.prt("Prefix: " + termtree.exportToPrefix());
+                    TIO.prt("Infix: " + termtree.exportToInfix());
+                    TIO.prt("Postfix: " + termtree.exportToPostfix());
                     break;
 
                 case 2:
-                    termtree.importFromInfix(importString);
-                    TIO.prt("Tree was imported from Infix!\n");
-                    break;
-
-                case 3:
-                    termtree.importFromPostfix(importString);
-                    TIO.prt("Tree was imported from Postfix!\n");
-                    break;
-
-                case 4:
+                    TIO.prt("Purging termtree...");
                     forceExitLoop = true;
                     allowMainExit = false;
                     break;
