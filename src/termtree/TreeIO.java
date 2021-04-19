@@ -15,6 +15,7 @@ public class TreeIO {
         if (operatorPool.indexOf(pInput.charAt(0)) != -1) { // check if start of input string is an operator
             tree.setLeftTree(treeFromPrefix(pInput.substring(1)));
             tree.setRightTree(treeFromPrefix(pInput.substring(1)));
+            //todo: find out where to split the subsring
         }
 
         return tree;
