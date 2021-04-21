@@ -1,24 +1,30 @@
 package termtree;
 
 import lib.BinaryTree;
+import lib.Queue;
 
 public class TreeIO {
     private static final String operatorPool = "+-/*";
 
-    public static BinaryTree<String> treeFromPrefix(String pInput) {
-        BinaryTree<String> tree = new BinaryTree<String>();
-        if (pInput == null || Character.isWhitespace(pInput.charAt(0))) {
+    static public BinaryTree<String> treeFromPrefix(Queue<String> pTreeQueue)
+    {
+        if(!pTreeQueue.isEmpty())
+        {
+        BinaryTree<String> outTree = new BinaryTree<String>(pTreeQueue.front());
+        pTreeQueue.dequeue();
+        try{
+            Double.parseDouble(outTree.getContent());
+        }
+        catch(NumberFormatException e)
+        {
+            outTree.setLeftTree(treeFromPrefix(pTreeQueue));
+            outTree.setRightTree(treeFromPrefix(pTreeQueue));
+        }
+        return outTree;
+        }
+        else{
             return null;
         }
-
-        tree.setContent(String.valueOf(pInput.charAt(0)));
-        if (operatorPool.indexOf(pInput.charAt(0)) != -1) { // check if start of input string is an operator
-            tree.setLeftTree(treeFromPrefix(pInput.substring(1)));
-            tree.setRightTree(treeFromPrefix(pInput.substring(1)));
-            //todo: find out where to split the subsring
-        }
-
-        return tree;
     }
 
     public static BinaryTree<String> treeFromInfix(String pInput) {

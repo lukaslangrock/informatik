@@ -1,6 +1,7 @@
 package termtree;
 
 import lib.BinaryTree;
+import lib.Queue;
 
 public class Termtree {
     private BinaryTree<String> tree;
@@ -14,7 +15,11 @@ public class Termtree {
     }
 
     public void importFromPrefix(String pInput) {
-        tree = TreeIO.treeFromPrefix(pInput);
+        Queue<String> queue = new Queue<String>();
+        for(int i = 0; i<pInput.length(); i++) {
+            queue.enqueue(String.valueOf(pInput.charAt(i)));
+          }
+        tree = TreeIO.treeFromPrefix(queue);
     }
 
     public void importFromInfix(String pInput) {
