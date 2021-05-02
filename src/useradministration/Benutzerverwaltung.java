@@ -9,15 +9,15 @@ public class Benutzerverwaltung {
         userDB = new BinarySearchTree<Benutzerprofil>();
     }
 
-    public void newUser(String pUsername, String pPwassword) {
-        // todo
+    public void newUser(String pUsername, String pPassword) {
+        userDB.insert(new Benutzerprofil(pUsername, pPassword));
     }
 
     public void delUser(String pUsername, String pPassword) {
-        // todo
+        userDB.remove(new Benutzerprofil(pUsername, pPassword));
     }
 
     public boolean checkUser(String pUsername) {
-        //todo
+        return (userDB.search(new Benutzerprofil(pUsername, null)) != null);
     }
 }
