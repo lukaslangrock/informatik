@@ -11,27 +11,25 @@ public class Benutzerprofil implements ComparableContent<Benutzerprofil> {
     }
 
     public String getBenutzername() {
-        return benutzername;
+        return username;
     }
 
     public boolean validatePw(String pw) {
-        if (pwInCleartextYesItsVeryVerySecurePleaseDontHackThankYou.equals(pw)) {
-            return true;
-        } else { return false; }
+        return (pwInCleartextYesItsVeryVerySecurePleaseDontHackThankYou.equals(pw));
     }
 
     @override
-    public boolean isGreater(ContentType pContent) {
-
+    public boolean isGreater(Benutzerprofil pProfile) {
+        return this.getBenutzername().compareTo(pProfile.getBenutzername()) > 0;
     }
 
     @override
-    public boolean isGreater(ContentType pContent) {
-        
+    public boolean isLess(Benutzerprofil pProfile) {
+        return this.getBenutzername().compareTo(pProfile.getBenutzername()) < 0;
     }
 
     @override
-    public boolean isGreater(ContentType pContent) {
-        
+    public boolean isEqual(Benutzerprofil pProfile) {
+        return this.getBenutzername().compareTo(pProfile.getBenutzername()) == 0;
     }
 }
