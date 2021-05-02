@@ -1,15 +1,11 @@
 package useradministration;
 
-import java.beans.beancontext.BeanContextChildSupport;
-
-import org.graalvm.compiler.nodes.NodeView.Default;
-
 import lib.TIO;
 
 public class main {
     public static void main(String[] args) {
         TIO.prt("Welcome the User Database Management System.");
-        Benutzerverwaltung manager = new Benutzerverwaltung();
+        Usermanager manager = new Usermanager();
 
         boolean repeat = true;
         do {

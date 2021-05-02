@@ -2,10 +2,10 @@ package useradministration;
 
 import lib.ComparableContent;
 
-public class Benutzerprofil implements ComparableContent<Benutzerprofil> {
+public class Userprofile implements ComparableContent<Userprofile> {
     private String username, password;
 
-    public Benutzerprofil(String login, String pw) {
+    public Userprofile(String login, String pw) {
         username = login;
         pwInCleartextYesItsVeryVerySecurePleaseDontHackThankYou = pw;
     }
