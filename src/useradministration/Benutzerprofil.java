@@ -3,19 +3,19 @@ package useradministration;
 import lib.ComparableContent;
 
 public class Benutzerprofil implements ComparableContent<Benutzerprofil> {
-    private String username, pwInCleartextYesItsVeryVerySecurePleaseDontHackThankYou;
+    private String username, password;
 
     public Benutzerprofil(String login, String pw) {
         username = login;
         pwInCleartextYesItsVeryVerySecurePleaseDontHackThankYou = pw;
     }
 
-    public String getBenutzername() {
+    public String getUsername() {
         return username;
     }
 
-    public boolean validatePw(String pw) {
-        return (pwInCleartextYesItsVeryVerySecurePleaseDontHackThankYou.equals(pw));
+    public boolean validatePw(String pPassword) {
+        return (password.equals(pPassword));
     }
 
     @override
