@@ -24,7 +24,11 @@ public class main {
                     break;
                 
                 case 3:
-                    manager.checkUser(TIO.AskString("Enter Username:"));
+                    if (manager.checkUser(TIO.AskString("Enter Username:"))) {
+                        TIO.prt("User found!");
+                    } else {
+                        TIO.prt("User was not found!");
+                    }
                     break;
                 
                 case 4:
