@@ -1,6 +1,6 @@
 package useradministration;
 
-import lib.BinarySearchtree;
+import lib.BinarySearchTree;
 
 public class Usermanager {
     BinarySearchTree<Userprofile> userDB;

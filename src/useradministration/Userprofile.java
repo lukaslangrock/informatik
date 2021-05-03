@@ -7,7 +7,7 @@ public class Userprofile implements ComparableContent<Userprofile> {
 
     public Userprofile(String login, String pw) {
         username = login;
-        pwInCleartextYesItsVeryVerySecurePleaseDontHackThankYou = pw;
+        password = pw;
     }
 
     public String getUsername() {
@@ -18,18 +18,18 @@ public class Userprofile implements ComparableContent<Userprofile> {
         return (password.equals(pPassword));
     }
 
-    @override
-    public boolean isGreater(Benutzerprofil pProfile) {
-        return this.getBenutzername().compareTo(pProfile.getBenutzername()) > 0;
+    @Override
+    public boolean isGreater(Userprofile pProfile) {
+        return this.getUsername().compareTo(pProfile.getUsername()) > 0;
     }
 
-    @override
-    public boolean isLess(Benutzerprofil pProfile) {
-        return this.getBenutzername().compareTo(pProfile.getBenutzername()) < 0;
+    @Override
+    public boolean isLess(Userprofile pProfile) {
+        return this.getUsername().compareTo(pProfile.getUsername()) < 0;
     }
 
-    @override
-    public boolean isEqual(Benutzerprofil pProfile) {
-        return this.getBenutzername().compareTo(pProfile.getBenutzername()) == 0;
+    @Override
+    public boolean isEqual(Userprofile pProfile) {
+        return this.getUsername().compareTo(pProfile.getUsername()) == 0;
     }
 }
