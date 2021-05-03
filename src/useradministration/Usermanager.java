@@ -13,11 +13,21 @@ public class Usermanager {
         userDB.insert(new Userprofile(pUsername, pPassword));
     }
 
-    public void delUser(String pUsername, String pPassword) {
-        userDB.remove(new Userprofile(pUsername, pPassword));
+    public boolean delUser(String pUsername, String pPassword) {
+        if (checkUser(pUsername, pPassword)) {
+            userDB.remove(new Userprofile(pUsername, null));
+            return true;
+        }
+        return false;
     }
 
     public boolean checkUser(String pUsername) {
         return (userDB.search(new Userprofile(pUsername, null)) != null);
+    }
+
+    public boolean checkUser(String pUsername, String pPassword) {
+        Userprofile user = userDB.search(new Userprofile(pUsername, null));
+        if (user == null) { return false; }
+        return user.validatePw(pPassword);
     }
 }

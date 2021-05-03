@@ -20,20 +20,24 @@ public class main {
                     break;
                 
                 case 2:
-                    manager.delUser(TIO.AskString("Enter Username:"), TIO.AskString("Enter Password:"));
+                    if (manager.delUser(TIO.AskString("Enter Username:"), TIO.AskString("Enter Password:"))) {
+                        TIO.prt("User deleted!\n");
+                    } else {
+                        TIO.prt("ERR: User not found or incorrect password!\n");
+                    }
                     break;
                 
                 case 3:
                     if (manager.checkUser(TIO.AskString("Enter Username:"))) {
-                        TIO.prt("User found!");
+                        TIO.prt("User found!\n");
                     } else {
-                        TIO.prt("User was not found!");
+                        TIO.prt("User was not found!\n");
                     }
                     break;
                 
                 case 4:
                     TIO.prt("Notice: This database is ephemeral and all data is gone!");
-                    TIO.prt("Goodybe!");
+                    TIO.prt("Goodybe!\n");
                     repeat = false;
                     break;
                     
