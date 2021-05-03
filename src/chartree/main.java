@@ -6,7 +6,7 @@ public class main {
 
     public static void main(String[] args) {
         CharController controller = null;
-        boolean initialized = false;;
+        boolean initialized = false;
 
         boolean repeat = true;
         do {
