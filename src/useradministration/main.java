@@ -42,7 +42,7 @@ public class main {
                     break;
                     
                 default:
-                    TIO.prt("Error: This operations is not avilable!");
+                    TIO.prt("Error: This operation is not avilable!");
                     break;
             }
         } while (repeat);
