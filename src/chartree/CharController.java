@@ -1,7 +1,5 @@
 package chartree;
 
-import org.graalvm.compiler.graph.spi.Canonicalizable.Binary;
-
 import lib.BinarySearchTree;
 
 public class CharController {
