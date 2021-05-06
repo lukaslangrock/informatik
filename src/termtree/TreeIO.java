@@ -6,25 +6,20 @@ import lib.Queue;
 public class TreeIO {
     private static final String operatorPool = "+-/*";
 
-    static public BinaryTree<String> treeFromPrefix(Queue<String> pTreeQueue)
-    {
-        if(!pTreeQueue.isEmpty())
-        {
-        BinaryTree<String> outTree = new BinaryTree<String>(pTreeQueue.front());
-        pTreeQueue.dequeue();
-        try{
-            Double.parseDouble(outTree.getContent());
-        }
-        catch(NumberFormatException e)
-        {
-            outTree.setLeftTree(treeFromPrefix(pTreeQueue));
-            outTree.setRightTree(treeFromPrefix(pTreeQueue));
-        }
-        return outTree;
-        }
-        else{
+    public static BinaryTree<String> treeFromPrefix(Queue<String> pInput) {
+        BinaryTree<String> tree = new BinaryTree<String>();
+
+        if (pInput.isEmpty()) {
             return null;
         }
+
+        tree.setContent(pInput.front());
+        pInput.dequeue();
+
+        tree.setLeftTree(treeFromPrefix(pInput));
+        tree.setRightTree(treeFromPrefix(pInput));
+
+        return tree;
     }
 
     public static BinaryTree<String> treeFromInfix(String pInput) {

@@ -16,9 +16,11 @@ public class Termtree {
 
     public void importFromPrefix(String pInput) {
         Queue<String> queue = new Queue<String>();
-        for(int i = 0; i<pInput.length(); i++) {
-            queue.enqueue(String.valueOf(pInput.charAt(i)));
-          }
+
+        for (Character i : pInput.toCharArray()) {
+            queue.enqueue(i.toString());
+        }
+
         tree = TreeIO.treeFromPrefix(queue);
     }
 
