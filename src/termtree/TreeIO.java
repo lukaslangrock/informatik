@@ -33,7 +33,7 @@ public class TreeIO {
     public static String treeToPrefix(BinaryTree<String> pInput) {
         String prefix = new String();
 
-        prefix = String.valueOf(pInput.getContent());
+        prefix += String.valueOf(pInput.getContent());
         if (!pInput.getLeftTree().isEmpty()) {
             prefix += treeToPrefix(pInput.getLeftTree());
         }
@@ -48,7 +48,7 @@ public class TreeIO {
         String infix = new String();
 
         if (!pInput.getLeftTree().isEmpty()) {
-            infix = treeToInfix(pInput.getLeftTree());
+            infix += treeToInfix(pInput.getLeftTree());
         }
         infix += String.valueOf(pInput.getContent());
         if (!pInput.getRightTree().isEmpty()) {
@@ -62,7 +62,7 @@ public class TreeIO {
         String postfix = new String();
 
         if (!pInput.getLeftTree().isEmpty()) {
-            postfix = treeToPostfix(pInput.getLeftTree());
+            postfix += treeToPostfix(pInput.getLeftTree());
         }
         if (!pInput.getRightTree().isEmpty()) {
             postfix += treeToPostfix(pInput.getRightTree());
