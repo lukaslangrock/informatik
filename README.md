@@ -19,6 +19,7 @@ Repo for computer science projects
 - [Termbaum (2021-KW15)](src/termtree)
 - [Benutzerverwaltung (2021-KW17)](src/useradministration)
 - [Zeichenbaum (2021-KW18)](src/chartree)
+- [Haus vom Nikolaus Graphen (2021-19)](src/nikolaushaus)
 
 ### Other
 
