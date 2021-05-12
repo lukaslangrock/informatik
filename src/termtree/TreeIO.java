@@ -6,25 +6,20 @@ import lib.Queue;
 public class TreeIO {
     private static final String operatorPool = "+-/*";
 
-    static public BinaryTree<String> treeFromPrefix(Queue<String> pTreeQueue)
-    {
-        if(!pTreeQueue.isEmpty())
-        {
-        BinaryTree<String> outTree = new BinaryTree<String>(pTreeQueue.front());
-        pTreeQueue.dequeue();
-        try{
-            Double.parseDouble(outTree.getContent());
-        }
-        catch(NumberFormatException e)
-        {
-            outTree.setLeftTree(treeFromPrefix(pTreeQueue));
-            outTree.setRightTree(treeFromPrefix(pTreeQueue));
-        }
-        return outTree;
-        }
-        else{
+    public static BinaryTree<String> treeFromPrefix(Queue<String> pInput) {
+        BinaryTree<String> tree = new BinaryTree<String>();
+
+        if (pInput.isEmpty()) {
             return null;
         }
+
+        tree.setContent(pInput.front());
+        pInput.dequeue();
+
+        tree.setLeftTree(treeFromPrefix(pInput));
+        tree.setRightTree(treeFromPrefix(pInput));
+
+        return tree;
     }
 
     public static BinaryTree<String> treeFromInfix(String pInput) {
@@ -38,7 +33,7 @@ public class TreeIO {
     public static String treeToPrefix(BinaryTree<String> pInput) {
         String prefix = new String();
 
-        prefix = String.valueOf(pInput.getContent());
+        prefix += String.valueOf(pInput.getContent());
         if (!pInput.getLeftTree().isEmpty()) {
             prefix += treeToPrefix(pInput.getLeftTree());
         }
@@ -53,7 +48,7 @@ public class TreeIO {
         String infix = new String();
 
         if (!pInput.getLeftTree().isEmpty()) {
-            infix = treeToInfix(pInput.getLeftTree());
+            infix += treeToInfix(pInput.getLeftTree());
         }
         infix += String.valueOf(pInput.getContent());
         if (!pInput.getRightTree().isEmpty()) {
@@ -67,7 +62,7 @@ public class TreeIO {
         String postfix = new String();
 
         if (!pInput.getLeftTree().isEmpty()) {
-            postfix = treeToPostfix(pInput.getLeftTree());
+            postfix += treeToPostfix(pInput.getLeftTree());
         }
         if (!pInput.getRightTree().isEmpty()) {
             postfix += treeToPostfix(pInput.getRightTree());
