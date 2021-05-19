@@ -92,15 +92,15 @@ public class SocialNetwork {
      * Die Methode liefert den Zentralitätsgrad des im Parameter angegebenen Knoten
      * pVertex im sozialen Netzwerk.
      */
-    public int getCentrality(Vertex pVertex) {
-        List<Vertex> pVertexNeighbours = network.getNeighbours(pVertex);
+    public double getCentrality(Vertex pVertex) {
+        List<Edge> pVertexEdges = network.getEdges(pVertex);
 
-        int numerator = 0;
-        int denominator = n - 1;
+        double numerator = 0;
+        double denominator = n - 1;
 
-        pVertexNeighbours.toFirst();
-        while (pVertexNeighbours.hasAccess()) {
-            pVertexNeighbours.next();
+        pVertexEdges.toFirst();
+        while (pVertexEdges.hasAccess()) {
+            pVertexEdges.next();
             numerator++;
         }
 
