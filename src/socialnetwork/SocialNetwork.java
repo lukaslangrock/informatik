@@ -106,4 +106,8 @@ public class SocialNetwork {
 
         return (numerator / denominator);
     }
+
+    public Vertex getVertexOfUser(String pSearchterm) {
+        return network.getVertex(pSearchterm);
+    }
 }

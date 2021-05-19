@@ -10,5 +10,15 @@ public class main {
 
         TIO.prt("\n-- [Network stats] -- \n");
         TIO.prt("Density: " + socialnetwork.getDensity());
+
+        boolean allowExit = false;
+        do {
+            String searchterm = TIO.AskString("\nEnter name of user to get centrality from (leave blank to exit): ");
+            if (searchterm.isEmpty()) {
+                allowExit = true;
+            } else {
+                TIO.prt("User has a centrality value of " + socialnetwork.getCentrality(socialnetwork.getVertexOfUser(searchterm)));
+            }
+        } while (!allowExit);
     }
 }
