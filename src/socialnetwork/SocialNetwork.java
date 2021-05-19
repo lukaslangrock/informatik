@@ -100,6 +100,7 @@ public class SocialNetwork {
 
         pVertexNeighbours.toFirst();
         while (pVertexNeighbours.hasAccess()) {
+            pVertexNeighbours.next();
             numerator++;
         }
 
