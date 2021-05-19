@@ -3,11 +3,19 @@ package socialnetwork;
 import lib.Graph;
 import lib.Vertex;
 import lib.Edge;
+import lib.List;
 
 public class SocialNetwork {
     Graph network;
+    int n; // number of all people in network
+    int m; // number of all connections between people
 
     public SocialNetwork() {
+        genNetwork();
+        calcNetwork();
+    }
+
+    private void genNetwork() {
         network = new Graph();
         Vertex a = new Vertex("A");
         Vertex b = new Vertex("B");
@@ -49,14 +57,35 @@ public class SocialNetwork {
         network.addEdge(new Edge(g, h, 1));
         network.addEdge(new Edge(h, i, 1));
         network.addEdge(new Edge(i, j, 1));
+    }
 
+    public void calcNetwork() {
+        // calculates statistics about the network
+        List<Vertex> allVertices = network.getVertices();
+        List<Edge> allEdges = network.getEdges();
+
+        allVertices.toFirst();
+        allEdges.toFirst();
+
+        n = 0;
+        m = 0;
+
+        while (allVertices.hasAccess()) {
+            allVertices.next();
+            n++;
+        }
+
+        while (allEdges.hasAccess()) {
+            allEdges.next();
+            m++;
+        }
     }
 
     /**
      * Die Methode liefert die Dichte des sozialen Netzwerks.
      */
     public int getDensity() {
-        return 0;
+        return ((2 * m) / n * (n - 1));
     }
 
     /**
@@ -64,8 +93,16 @@ public class SocialNetwork {
      * pVertex im sozialen Netzwerk.
      */
     public int getCentrality(Vertex pVertex) {
-        // hier entsteht die Methode, die den Zentralitätsgrad des Knoten pVertex
-        // zurückliefert
-        return 0;
+        List<Vertex> pVertexNeighbours = network.getNeighbours(pVertex);
+
+        int numerator = 0;
+        int denominator = n - 1;
+
+        pVertexNeighbours.toFirst();
+        while (pVertexNeighbours.hasAccess()) {
+            numerator++;
+        }
+
+        return (numerator / denominator);
     }
 }
