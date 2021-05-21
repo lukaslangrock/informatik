@@ -84,7 +84,7 @@ public class SocialNetwork {
     /**
      * Die Methode liefert die Dichte des sozialen Netzwerks.
      */
-    public int getDensity() {
+    public double getDensity() {
         return ((2 * m) / n * (n - 1));
     }
 
